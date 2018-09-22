@@ -1,0 +1,19 @@
+<div class="container-fluid">
+	<div class="row">
+		<% @albums.each do |album| %>
+			<div class="d-inline-block col-6 col-md-4 col-lg-3 p-3">
+				<div class="card-body">
+					<div style="overflow:hidden">
+						<img style="width:100%" src="http://tamusic.jp/img/TAM3-0154_400-400.jpg">			
+					</div>
+					<p class="font-weight-bold my-0 card-title"><%= album.title %></p>
+					<p class="text-muted my-0"><%= album.album_code %></p>
+					<p class="text-muted my-0"><%= album.artist %></p>
+				</div>
+			</div>
+		<% end %>
+		<div class="container">
+			<%= paginate @albums %>
+		</div>
+	</div>
+</div>

@@ -1,15 +1,95 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Doujindesu</title>
+    <title>Doujin Desu!</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place this data between the <head> tags of your website -->
+    <meta name="Doujin Desu!" content="Discover the whole new realm of indie music at Doujin Desu!" />
+    <meta property="og:image" content="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg" />
+    <meta property="og:description" content="Discover the whole new realm of indie music at Doujin Desu! For fans, by fans to create a platform to celebrate music with passion." />
+
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+       <%= link_to 'Doujin Desu!', root_path, class: 'navbar-brand' %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item mx-3">
+            <%= link_to 'Home', root_path, class: 'nav-link' %>
+          </li>
+          <% if logged_in? %>
+            <% if current_user.permission_level == "admin" %>
+              <li class="nav-item mx-3">
+                <%= link_to 'Admin', rails_admin_path, class: 'nav-link' %>
+              </li>
+            <% end %>
+          <% end %>
+          <% if logged_in? %>
+            <li class="nav-item mx-3">
+                <a class="nav-link disabled">Welcome, <%= current_user.username %></a>
+            </li>
+            <li class="nav-item mx-3">
+                <%= link_to 'Logout', logout_path, class: 'nav-link btn btn-outline-danger text-danger' %>
+            </li>
+          <% else %>
+            <li class="nav-item mx-3">
+              <%= link_to "Sign Up", signup_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item mx-3"> 
+              <%= link_to "Log In", login_path, class: 'nav-link' %>        
+            </li>
+          <% end %>
+          <li class="nav-item mx-3">
+            <% if logged_in? %>
+              <%= link_to '+ Add album', album_new_path, class: 'nav-link' %>
+            <% else %>
+              <%= link_to '+ Add album', login_path, class: 'nav-link' %>
+            <% end %>
+          </li>
+        </ul>
+
+
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+    <div class="container-fluid" style="height:15vh">
+      <div class="row bg-secondary" style="height:15vh">
+
+        <div class="col-4 col-md-2 text-center" style="height:100%">
+          <img class="album-cover" src="http://tamusic.jp/img/TAM3-0154_400-400.jpg">
+        </div>
+
+        <div class="col-8 col-md-6">
+          <div>
+            <br>
+            <h5 class="font-weight-bold text-light">Title</h5>
+            <p class="text-light">Code</p>
+            <p class="text-light">Artist</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 text-center" style="height:100%">
+          <iframe height="100%" src="https://www.youtube.com/embed/naIaW4pk_-o" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+
+      </div>
+    </div>
+
     <%= yield %>
   </body>
 </html>

@@ -29,6 +29,10 @@ gem 'jquery-rails'
 gem 'popper_js', '~> 1.14', '>= 1.14.3'
 gem 'kaminari'
 gem 'rails_admin', '~> 1.3'
+gem "figaro"
+gem 'pg_search'
+# gem 'texticle', '~> 2.0', require: 'texticle/rails'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'album/index'
   get 'album/new'
   get 'album/edit'
+  get 'contact/index'
 
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'

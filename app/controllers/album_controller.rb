@@ -1,6 +1,10 @@
 class AlbumController < ApplicationController
   def index
-  	@albums = Album.order(:created_at).page(params[:page])
+    if params[:search].present?
+	    @albums = Album.text_search(params[:search]).page(params[:page])
+    else
+    	@albums = Album.all.order("created_at desc").page(params[:page])
+    end
   end
 
   def new

@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="row">
+		<div class="col-12"">
+			<h1>Contact Us</h1>
+			<p>Our location is located at Glo Damansara</p>
+			<p>12, Jalan TTDI, Bandar Utama, 48200 Damansara Jaya, Selangor</p>
+		</div>	
+	</div>
+	<div class="row">
+		<div id="map" class="col-12" style="height:60vh"></div>	
+	</div>
+
+
+</div>
+<script type="text/javascript">
+	function initMap() {
+		const coordinates = {lat: 3.134873, lng: 101.6299415};
+		var map = new google.maps.Map(document.getElementById('map'), {
+		  zoom: 18,
+		  center: coordinates
+		});
+		var marker = new google.maps.Marker({
+		  position: coordinates,
+		  map: map,
+		  title: 'Doujin Desu! HQ'
+		});
+	}
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['google_maps_apikey']%>&callback=initMap" type="text/javascript"></script>

@@ -15,15 +15,6 @@ ActiveRecord::Schema.define(version: 2018_09_21_075952) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "album_genre_joins", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "album_id"
-    t.bigint "genre_id"
-    t.index ["album_id"], name: "index_album_genre_joins_on_album_id"
-    t.index ["genre_id"], name: "index_album_genre_joins_on_genre_id"
-  end
-
   create_table "albums", force: :cascade do |t|
     t.string "title", null: false
     t.string "album_code"
@@ -33,12 +24,6 @@ ActiveRecord::Schema.define(version: 2018_09_21_075952) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_albums_on_user_id"
-  end
-
-  create_table "genres", force: :cascade do |t|
-    t.string "genre", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

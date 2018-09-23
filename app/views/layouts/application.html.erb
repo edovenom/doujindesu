@@ -28,6 +28,9 @@
           <li class="nav-item mx-3">
             <%= link_to 'Home', root_path, class: 'nav-link' %>
           </li>
+          <li class="nav-item mx-3"> 
+              <%= link_to "Contact Us", contact_index_path, class: 'nav-link' %>        
+            </li>
           <% if logged_in? %>
             <% if current_user.permission_level == "admin" %>
               <li class="nav-item mx-3">
@@ -60,10 +63,11 @@
         </ul>
 
 
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <form class="form-inline my-2 my-lg-0" method="get" action=<%= root_path %>>
+          <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
+
       </div>
     </nav>
 
@@ -89,7 +93,11 @@
 
       </div>
     </div>
-
+    <% if notice == nil %>
+    <% else %>
+      <div class="alert alert-info" role="alert"><%= notice %></div>
+    <% end %>
     <%= yield %>
   </body>
+
 </html>

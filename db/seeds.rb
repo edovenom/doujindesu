@@ -34,13 +34,3 @@ Album.create({title: "東方爆音ジャズ１０", artist: "Tokyo Active NEETs"
 Album.create({title: "東方爆音ジャズBEST", artist: "Tokyo Active NEETs", album_code: "ANCD0022", preview_link: "https://www.youtube.com", user_id: 1})
 Album.create({title: "東方爆音ジャズ１１　神", artist: "Tokyo Active NEETs", album_code: "ANCD0024", preview_link: "https://www.youtube.com", user_id: 1})
 Album.create({title: "東方爆音ジャズ１２　針", artist: "Tokyo Active NEETs", album_code: "ANCD0025", preview_link: "https://www.youtube.com", user_id: 1})
-
-Genre.create(genre: "jazz")
-Genre.create(genre: "rock")
-Genre.create(genre: "metal")
-Genre.create(genre: "vocal")
-Genre.create(genre: "instrumental")
-Genre.create(genre: "pop")
-Genre.create(genre: "edm")
-Genre.create(genre: "eurobeat")
-Genre.create(genre: "rap")

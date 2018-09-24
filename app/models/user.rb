@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
 
 	def self.email_to_name(email)
-	  name = email[/[^@]+/]
+	  name = email[/[^@]+/].to_s
 	  name.split(".").map {|n| n.capitalize }.join(" ")
 	end
 end

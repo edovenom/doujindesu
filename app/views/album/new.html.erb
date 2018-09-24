@@ -1,16 +1,6 @@
 <div class="container">
   <h1>Submit a new album</h1>
   <%= form_for @albums, method: :post, url: album_create_path do |f| %>
-    <% if @albums.errors.any? %>
-      <div class="error_messages">
-        <h2>Form is invalid</h2>
-        <ul>
-          <% @albums.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
 
     <div class="form-row">
       <div class="form-group col-6">

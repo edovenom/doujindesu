@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_url, notice: 'Thank you for signing up!'
     else
-      redirect_to root_url, notice: 'Sign up unsuccesful'
+      redirect_to root_url, notice: 'Sign up failed'
     end
   end
 

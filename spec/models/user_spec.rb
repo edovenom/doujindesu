@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
-  user_details1 = {email: "mango.jango@gmail.com", name: "mango.jango", password:"2345"}
+  user_details1 = {email: "bacon@gmail.com", name: "bacon", password:"2345"}
   user_details2 = {email: "kitt@gmail.com", name: "kitt", password:"2345"}
   user_details3 = {email: "britney.spears@gmail.com", name: "wong", password:"2345"}
 

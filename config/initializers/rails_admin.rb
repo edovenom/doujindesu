@@ -48,6 +48,7 @@ RailsAdmin.config do |config|
   config.authorize_with do
     if current_user != nil
       if current_user.permission_level == "admin"
+      else
         redirect_to main_app.root_path, notice: 'Please login as admin to continue'
       end
     else

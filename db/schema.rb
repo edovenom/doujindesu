@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2018_09_23_142227) do
   create_table "albums", force: :cascade do |t|
     t.string "cover_link", null: false
     t.string "title", null: false
-    t.string "album_code"
+    t.string "album_code", null: false
     t.string "artist", null: false
     t.string "preview_link", null: false
     t.datetime "created_at", null: false
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2018_09_23_142227) do
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
-    t.string "username", null: false
+    t.string "name", null: false
     t.string "password_digest", null: false
     t.integer "permission_level", default: 0, null: false
     t.datetime "created_at", null: false

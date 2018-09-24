@@ -44,7 +44,7 @@
           <% end %>
           <% if logged_in? %>
             <li class="nav-item mx-3">
-                <a class="nav-link disabled">Welcome, <%= current_user.username %></a>
+                <a class="nav-link disabled">Welcome, <%= current_user.name %></a>
             </li>
             <li class="nav-item mx-3">
                 <%= link_to 'Logout', logout_path, class: 'nav-link btn btn-outline-danger text-danger' %>

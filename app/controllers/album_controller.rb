@@ -16,6 +16,7 @@ class AlbumController < ApplicationController
   end
 
   def create
+    allowed_params[:album_code] = Album.standardize_album_code(allowed_params[:album_code])
     @albums = Album.new(allowed_params)
     @albums.user_id = current_user.id
     if @albums.save

@@ -1,0 +1,8 @@
+<tr>
+	<td class="m-3 p-3"><%= @genre.genre %></td>
+	<% if logged_in? %>
+	  <% if current_user.permission_level == "admin" %>
+	    <td class="m-3 p-3"><%= link_to 'Delete', @genre, method: :delete, data: { confirm: 'Are yosure?' }, class: 'btn btn-danger' %></td>
+	  <% end %>
+	<% end %>
+</tr>

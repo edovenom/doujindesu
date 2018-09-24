@@ -18,6 +18,8 @@
 //= require popper
 //= require bootstrap-sprockets
 
-console.log("Js is ready");
+
+	
+
 
 

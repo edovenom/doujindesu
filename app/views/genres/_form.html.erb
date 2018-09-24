@@ -1,0 +1,11 @@
+<%= form_with(model: @genre, id:"new-genre-form", remote: true) do |form| %>
+
+  <div class="form-group">
+    <%= form.label :genre %>
+    <%= form.text_field :genre, class:'form-control', placeholder: 'Add a new genre' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Submit', :class => 'btn btn-info' %>
+  </div>
+<% end %>

@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Submit a new album</h1>
-  <%= form_for @albums do |f| %>
+  <%= form_for @albums, method: :post, url: album_create_path do |f| %>
     <% if @albums.errors.any? %>
       <div class="error_messages">
         <h2>Form is invalid</h2>
@@ -24,6 +24,10 @@
       <div class="form-group col-6">
         <%= f.label :artist %>
         <%= f.text_field :artist, class: "form-control" %>
+      </div>
+      <div class="form-group col-6">
+        <%= f.label :cover_link %>
+        <%= f.text_field :cover_link, class: "form-control" %>
       </div>
       <div class="form-group col-6">
         <%= f.label :preview_link %>

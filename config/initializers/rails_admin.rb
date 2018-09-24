@@ -33,9 +33,23 @@ RailsAdmin.config do |config|
     edit
     delete
     show_in_app
-
+  end
     ## With an audit adapter, you can add:
     # history_index
     # history_show
+  def current_user
+    if session[:user_id]
+      @current_user ||= User.find_by_id(session[:user_id])
+    else
+      nil
+    end
+  end
+
+  config.authorize_with do
+    if current_user != nil
+      current_user.permission_level == "admin"
+    else
+      redirect_to main_app.root_path, notice: 'Please login as admin to continue'
+    end
   end
 end

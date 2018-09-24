@@ -14,6 +14,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
@@ -27,6 +28,9 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item mx-3">
             <%= link_to 'Home', root_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item mx-3">
+            <%= link_to 'Genre', genres_path, class: 'nav-link' %>
           </li>
           <li class="nav-item mx-3"> 
               <%= link_to "Contact Us", contact_index_path, class: 'nav-link' %>        
@@ -54,11 +58,7 @@
             </li>
           <% end %>
           <li class="nav-item mx-3">
-            <% if logged_in? %>
-              <%= link_to '+ Add album', album_new_path, class: 'nav-link' %>
-            <% else %>
-              <%= link_to '+ Add album', login_path, class: 'nav-link' %>
-            <% end %>
+            <%= link_to '+ Add album', album_new_path, class: 'nav-link' %>
           </li>
         </ul>
 
@@ -71,24 +71,24 @@
       </div>
     </nav>
 
-    <div class="container-fluid" style="height:15vh">
+    <div id="preview-container" class="container-fluid d-none" style="height:15vh">
       <div class="row bg-secondary" style="height:15vh">
 
-        <div class="col-4 col-md-2 text-center" style="height:100%">
-          <img class="album-cover" src="http://tamusic.jp/img/TAM3-0154_400-400.jpg">
+        <div class="col-2 text-center" style="height:100%">
+          <img id="preview-img" class="album-cover" src="http://tamusic.jp/img/TAM3-0154_400-400.jpg">
         </div>
 
-        <div class="col-8 col-md-6">
+        <div class="col-6">
           <div>
             <br>
-            <h5 class="font-weight-bold text-light">Title</h5>
-            <p class="text-light">Code</p>
-            <p class="text-light">Artist</p>
+            <h5 id="preview-title" class="font-weight-bold text-light">Title</h5>
+            <p id="preview-code" class="text-light">Code</p>
+            <p id="preview-artist" class="text-light">Artist</p>
           </div>
         </div>
 
-        <div class="col-12 col-md-4 text-center" style="height:100%">
-          <iframe height="100%" src="https://www.youtube.com/embed/naIaW4pk_-o" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <div class="col-4 text-center" style="height:100%">
+          <iframe id="preview-video" height="100%" src="#" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
 
       </div>
@@ -98,6 +98,29 @@
       <div class="alert alert-info" role="alert"><%= notice %></div>
     <% end %>
     <%= yield %>
+    <script>
+      console.log("Js is ready");
+
+      $(document).ready(function() {
+        let previewTitle = $('#preview-title');
+        let previewCode = $('#preview-code');
+        let previewArtist = document.getElementById('preview-artist');
+        let previewImg = $('#preview-img');
+        let previewVideo= $('#preview-video')
+        let previewContainer= $('#preview-container')
+
+        $(".clickable").click(function(event){
+          event.preventDefault();
+          previewImg.attr('src',this.src)
+          previewTitle.html(this.title);
+          previewCode.html(this.id);
+          previewArtist.innerHTML=this.getAttribute('artist');
+          previewVideo.attr('src',this.getAttribute('preview-link')+'?autoplay=1');
+          previewContainer.removeClass('d-none')
+        })
+
+      })
+    </script>
   </body>
 
 </html>

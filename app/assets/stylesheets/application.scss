@@ -15,6 +15,13 @@
 	height:100%;
 }
 
+.holder {
+	overflow:hidden;
+}
+
+.clickable:hover {
+	opacity: 0.7;
+}
 
 
 //Custom bootstrap variables must be set or imported *before* bootstrap.
